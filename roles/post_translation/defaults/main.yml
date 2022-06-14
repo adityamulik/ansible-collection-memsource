@@ -1,0 +1,17 @@
+---
+translation_supported_langs:
+  - es
+  - fr
+  - nl
+  - zh_cn
+  - ja
+  - ko
+memsource_username: "{{ lookup('env', 'MEMSOURCE_USERNAME') }}"
+memsource_password: "{{ lookup('env', 'MEMSOURCE_PASSWORD') }}"
+github_username: ""
+github_token: ""
+repo_url: ""
+fork_repo_url: ""
+repo_branch: ""
+project_uid: ""
+project_name: ""

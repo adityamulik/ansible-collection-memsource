@@ -59,7 +59,7 @@ options:
       - TODO
     type: int
 extends_documentation_fragment:
-- community.memsource.memsource
+- ansible.memsource.memsource
 
 requirements: [memsource]
 """
@@ -76,7 +76,7 @@ import_settings:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.memsource.plugins.module_utils.memsource import (
+from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
     get_action,
     get_default_argspec,
     get_memsource_client,
@@ -140,7 +140,8 @@ def main():
         pass
     else:
         res = _memsource.delete_import_settings(
-            module.params["uid"], do_not_fail_on_404=True,
+            module.params["uid"],
+            do_not_fail_on_404=True,
         )
         if res.status_code == 204:
             _result.update({"changed": True})

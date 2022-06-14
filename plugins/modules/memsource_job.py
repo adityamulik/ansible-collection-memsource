@@ -26,12 +26,15 @@ options:
     description:
       - Source language of the job
     type: str
-  target_langs:
+  langs:
     description:
       - Target languages for the job
     type: list
+  preTranslate:
+    description:
+      - Adds a flag to pre-populate data with cached strings
 extends_documentation_fragment:
-- community.memsource.memsource
+- ansible.memsource.memsource
 
 requirements: [memsource]
 """
@@ -40,23 +43,22 @@ EXAMPLES = """
 # Project creation
 #
 - name: Create job
-  community.memsource.memsource_job:
-    name: My Project
-    source_lang: en_us
-    target_langs:
+  ansible.memsource.memsource_job:
+    project_uid: project_uid
+    langs:
       - ja_jp
       - zh_cn
     filename: /path/to/file
 
 - name: Retrieve job information
-  community.memsource.memsource_job:
+  ansible.memsource.memsource_job:
     uid: uid
     project_uid: project_uid
 
 - name: Delete job
-  community.memsource.memsource_job:
+  ansible.memsource.memsource_job:
     uid: uid
-    projectu_id: project_uid
+    project_uid: project_uid
     state: absent
 """
 
@@ -69,7 +71,7 @@ job:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.memsource.plugins.module_utils.memsource import (
+from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
     get_action,
     get_default_argspec,
     get_memsource_client,
@@ -87,6 +89,7 @@ def main():
             use_project_file_import_settings=dict(type="bool"),
             purge_on_delete=dict(type="bool"),
             split_filename_on_dir=dict(type="bool"),
+            preTranslate=dict(type="bool"),
             state=dict(type="str", default="present", choices=["absent", "present"]),
         ),
     )
@@ -109,6 +112,7 @@ def main():
             module.params.get("langs"),
             module.params.get("filename"),
             module.params.get("split_filename_on_dir", False),
+            module.params.get("preTranslate", True),
             **kwargs
         )
         _result.update({"changed": True})

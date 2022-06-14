@@ -37,26 +37,26 @@ options:
     required: false
     type: bool
 extends_documentation_fragment:
-- community.memsource.memsource
+- ansible.memsource.memsource
 
 requirements: [memsource]
 """
 
 EXAMPLES = """
 - name: Download job target file and rely on filename and original directory name for dest
-  community.memsource.memsource_job_file:
+  ansible.memsource.memsource_job_targetfile:
     project_uid: xxx
     jobs_uid: yyy
 
 - name: Download job target file and write it in path
-  community.memsource.memsource_job_file:
+  ansible.memsource.memsource_job_targetfile:
     project_uid: xxx
     jobs_uid: yyy
     path: /tmp/foo
 """
 
 RETURN = """
-job_file:
+job_targetfile:
     returned: on success
     description: >
         TBD
@@ -66,7 +66,7 @@ job_file:
 import os.path
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.memsource.plugins.module_utils.memsource import (
+from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
     get_action,
     get_default_argspec,
     get_memsource_client,
@@ -105,7 +105,7 @@ def main():
     if os.path.exists(_dest) and not module.params.get("force", False):
         pass
     else:
-        content = "%s\n" % str(res.content.decode("utf-8")).split("\n\r\n")[1]
+        content = "%s\n" % str(res.content.decode("utf-8")).split("\n\r\n")[0]
         with open(_dest, "w+") as ftw:
             ftw.write(content)
         _result.update({"changed": True})
