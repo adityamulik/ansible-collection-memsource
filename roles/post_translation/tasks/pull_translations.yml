@@ -1,0 +1,27 @@
+---
+- name: To pull Strings from Memsource and pushing it to upstream project
+  hosts: localhost
+
+  tasks:
+  - name: Get current working directory
+    set_fact:
+      current_directory: "{{ lookup('env', 'PWD') }}"
+
+  - name: Temporate Repository Storage Directory
+    ansible.builtin.file:
+      state: directory
+      name: "{{ current_directory }}/_translations/"
+    register: translations_dir
+
+  - name: Set component name variable
+    set_fact:
+      component: '{{ upstream_repo_url.split("/")[1].replace(".git", "") }}'
+        
+  - name: Download strings from Memsource 
+    include_tasks: generic_download_from_memsource.yml
+
+  - name: Run post_translation shell script 
+    include_tasks: move_translated_strings.yml
+
+  - name: Upload to (Upstream) Repository
+    include_tasks: push_strings_upstream.yml

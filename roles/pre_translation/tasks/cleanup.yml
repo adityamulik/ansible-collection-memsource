@@ -1,0 +1,6 @@
+---
+
+- name: Delete _clones directory
+  ansible.builtin.file:
+    path: _clones/{{ component }}
+    state: absent

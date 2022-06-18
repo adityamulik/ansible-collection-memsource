@@ -1,0 +1,70 @@
+---
+- name: To pull Strings from Project and pushing it to Memsource for translation.
+  hosts: localhost
+
+  tasks:
+  - name: Assertions
+    assert:
+      that:
+        - upstream_repo_url | default('') | length
+        - repo_branch | default('') | length
+        - project_name | default('') | length
+
+  - name: Get current working directory
+    set_fact:
+      current_directory: "{{ lookup('env', 'PWD') }}"
+
+  - name: Temporate Repository Storage Directory
+    ansible.builtin.file:
+      state: directory
+      name: "{{ current_directory }}/_clones/"
+    register: clone_dir
+
+  - name: Set component name variable
+    set_fact:
+      component: '{{ upstream_repo_url.split("/")[1].replace(".git", "") }}'
+
+  - name: Set clone_repo path
+    ansible.builtin.file:
+      state: directory
+      name: "{{ current_directory }}/_clones/{{ component }}"
+    register: clone_repo_path  
+
+  - name: Cloned Repository Directory (From Upstream - latest changes)
+    git:
+      repo: 'git@github.com:{{ upstream_repo_url }}.git'
+      dest: '{{ clone_repo_path.path }}'
+      version: '{{ repo_branch }}'
+      force: true
+      depth: 1
+
+  - name: Temporary Strings Storage Directory in repository
+    ansible.builtin.file:
+      state: directory
+      path: "_clones/{{ component }}/translations"
+    register: translations_dir
+
+  - name: Pre_translation shell script
+    block:
+    - name: Permissions for Script
+      ansible.builtin.file:
+        path: _clones/{{ component }}/pre_translation.sh
+        mode: '0755'
+
+    - name: Run Script
+      ansible.builtin.shell: _clones/{{ component }}/pre_translation.sh
+
+  - name: List all files in translations_dir
+    command: "ls {{ translations_dir.path }}"
+    register: translations_loop
+
+  - name: Translations Files in List 
+    set_fact: 
+      translation_files: "{{ translations_loop.stdout_lines }}"  
+
+  - name: Upload to Memsource 
+    include_tasks: generic_upload_to_memsource.yml
+
+  - name: Cleanup 
+    include_tasks: cleanup.yml
+  
