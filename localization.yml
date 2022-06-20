@@ -4,4 +4,4 @@
   
   roles:
     - pre_translation
-    # - { role: post_translation }
+    - post_translation

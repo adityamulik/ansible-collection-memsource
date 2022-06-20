@@ -7,7 +7,6 @@
       - upstream_repo_url | default('') | length
       - repo_branch | default('') | length
       - github_username | default('') | length
-      - github_token | default('') | length
 
 - name: Add files to pr_branch & push the files
   shell: |
