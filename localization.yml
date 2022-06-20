@@ -1,0 +1,7 @@
+---
+- name: Generic Localization
+  hosts: localhost
+  
+  roles:
+    - pre_translation
+    # - { role: post_translation }

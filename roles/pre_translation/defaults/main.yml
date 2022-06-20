@@ -1,6 +1,2 @@
 ---
 # defaults file for pre_translation
-upstream_repo_url: "adityamulik/pinakes-ui"
-repo_branch: "main"
-project_name: "[Generic] Pinakes-UI Localization"
-project_template: 203223
