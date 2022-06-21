@@ -1,7 +1,2 @@
 ---
 # defaults file for post_translation
-
-downstream_repo_url: "adityamulik/awx"
-project_uid: "lgrOuoVuaA9e9lojE5QVq0"
-upstream_repo_url: "adityamulik/pinakes-ui"
-repo_branch: "main"
