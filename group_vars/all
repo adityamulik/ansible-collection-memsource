@@ -1,6 +1,6 @@
 # Global declaration for github credentials
-email: "aditya.mulik@gmail.com"
-github_username: "adityamulik"
+email: ""
+github_username: ""
 github_token: ""
 
 # Global declaration for target languages
