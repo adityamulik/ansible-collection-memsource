@@ -1,7 +1,6 @@
 ---
-- name: Generic Localization
+- name: Generic Localization - Post-translation
   hosts: localhost
   
   roles:
-    - pre_translation
     - post_translation
