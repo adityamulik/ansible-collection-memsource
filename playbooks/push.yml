@@ -3,4 +3,4 @@
   hosts: localhost
   
   roles:
-    - pre_translation
+    - role: community.memsource.pre_translation
