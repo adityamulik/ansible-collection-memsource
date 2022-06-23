@@ -21,8 +21,8 @@ Below are mandatory variables required.
 - project_name
 - preTranslate (Optional: Certain translations will be pre_translated from cached memsource database, until stated false)
 - project_template (Required: Project template dedicated for the specfic project to be translated)
-- memsource_username (To be provided from command line)
-- memsource_password (To be provided from command line)
+- memsource_username (To be provided from command-line)
+- memsource_password (To be provided from command-line)
 
 Dependencies
 ------------
