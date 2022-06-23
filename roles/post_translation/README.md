@@ -15,7 +15,7 @@ Below are mandatory variables required.
 - email
 - github_username
 - github_token
-- translation_supported_langs (Default - can be overridden) 
+- translation_supported_langs (Default - can be overridden)
 - upstream_repo_url
 - repo_branch
 - downstream_repo_url
@@ -62,4 +62,4 @@ Apache-2.0
 
 Author Information
 ------------------
- - Aditya Mulik (aditya.mulik@gmail.com)
+- Aditya Mulik (aditya.mulik@gmail.com)
