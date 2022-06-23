@@ -31,7 +31,7 @@ The pre_translation role should be executed for the latest strings to be transla
 Playbook
 ----------------
 
-The playbook pull.yml available under playbooks/ directory will be used to run the role:
+The playbook pull.yml is available under playbooks/ directory will be used to run the role:
 
     ---
     - name: Generic Localization - Post-translation
@@ -47,7 +47,7 @@ Execution Steps
 
 Ansible Playbook (pull.yml) will be used to run this role.
 
-1. Provide the required variables from command line or from playbooks/vars/ directory (common.yml & push_vars.yml)
+1. Provide the required variables from command line or from playbooks/vars/ directory (common.yml & pull_vars.yml)
 2. Provide the memsource username and memsource password from command line
 3. From the root path of the collection, run the below command
 
