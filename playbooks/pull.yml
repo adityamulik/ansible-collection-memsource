@@ -1,6 +1,7 @@
 ---
 - name: Generic Localization - Post-translation
   hosts: localhost
-  
+  vars_files:
+    - "vars/vars.yml"
   roles:
     - role: community.memsource.post_translation
