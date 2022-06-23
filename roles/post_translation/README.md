@@ -20,8 +20,8 @@ Below are mandatory variables required.
 - repo_branch
 - downstream_repo_url
 - project_name
-- memsource_username (To be provided from command line)
-- memsource_password (To be provided from command line)
+- memsource_username (To be provided from command-line)
+- memsource_password (To be provided from command-line)
 
 Dependencies
 ------------
@@ -48,7 +48,7 @@ Execution Steps
 Ansible Playbook (pull.yml) will be used to run this role.
 
 1. Provide the required variables from command line or from playbooks/vars/ directory (common.yml & pull_vars.yml)
-2. Provide the memsource username and memsource password from command line
+2. Provide the memsource username and memsource password from command-line
 3. From the root path of the collection, run the below command
 
 ```ansible-playbook playbooks/pull.yml -e memsource_username=$MEMSOURCE_USERNAME -e memsource_password=$MEMSOURCE_PASSWORD```
