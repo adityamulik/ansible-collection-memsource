@@ -3,5 +3,6 @@
   hosts: localhost
   vars_files:
     - "vars/common.yml"
+    - "./vars.yml"
   roles:
     - role: ansible.memsource.post_translation
