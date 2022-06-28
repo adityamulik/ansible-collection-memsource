@@ -25,6 +25,8 @@ Name | Description
 [pre_translation](./roles/pre_translation) | Role to extract strings from a project and upload to Memsource
 [post_translation](./roles/post_translation) | Role to pull translated strings from Memsource and push to the respective project
 
+** Note: Please read the requirements of each Role's README.md before executing the role
+
 ## Installing this collection
 
 You can install the memsource collection with the Ansible Galaxy CLI:
