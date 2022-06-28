@@ -56,10 +56,8 @@ from ansible_collections.ansible.memsource.plugins.module_utils.memsource import
 
 def main():
     argument_spec = get_default_argspec()
-    argument_spec.update(dict(
-      filters=dict(default={}, type="dict"),
-      project_name=dict(type="str", required=True),
-      )
+    argument_spec.update(
+      dict(project_name=dict(type="str", required=True))
     )
 
     module = AnsibleModule(argument_spec=argument_spec, supports_check_mode=True)
@@ -67,7 +65,7 @@ def main():
     _memsource = get_memsource_client(module.params)
 
     project = _memsource.get_project_by_name(
-      module.params.get("project_name"), filters=module.params.get("filters")
+      module.params.get("project_name")
     )
 
     module.exit_json(projects=project)
