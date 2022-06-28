@@ -14,10 +14,17 @@
   set_fact:
     component: '{{ upstream_repo_url.split("/")[1].replace(".git", "") }}'    
 
-- name: Gather information about a specific job
+- name: Get Project UID by Project Name
+  ansible.memsource.memsource_project_info:
+    project_name: "{{ project_name }}"
+  register: _project
+
+- name: Gather information about a specific job {{ _project }}
   ansible.memsource.memsource_job_info:
     project_uid: "{{ project_uid }}"
   register: _jobs
+
+- pause:
 
 - set_fact:
     jobs: "{{ _jobs.jobs }}"

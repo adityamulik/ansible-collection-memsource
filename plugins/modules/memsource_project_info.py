@@ -62,9 +62,9 @@ def main():
 
     _memsource = get_memsource_client(module.params)
 
-    projects = _memsource.get_projects(filters=module.params.get("filters"))
+    project = _memsource.get_project_by_name(module.params.get("project_name"))
 
-    module.exit_json(projects=projects)
+    module.exit_json(projects=project)
 
 
 if __name__ == "__main__":
