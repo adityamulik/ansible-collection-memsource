@@ -68,8 +68,6 @@ def main():
       module.params.get("project_name")
     )
 
-    print("PROJECT ID ", project)
-
     module.exit_json(projects=project)
 
 
