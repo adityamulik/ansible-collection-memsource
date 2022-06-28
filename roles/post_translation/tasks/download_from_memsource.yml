@@ -17,18 +17,18 @@
 - name: Get Project UID by Project Name
   ansible.memsource.memsource_project_info:
     project_name: "{{ project_name }}"
-  register: _project
+  register: project_uid
 
-- name: Set Project ID from project name 
-  set_fact: 
-    project_uid: "{{ _project.uid }}"
+- pause:
+
+# - name: Set Project ID from project name 
+#   set_fact: 
+#     project_uid: "{{ _project['content']uid }}"
 
 - name: Gather information about a specific job {{ project_uid }}
   ansible.memsource.memsource_job_info:
     project_uid: "{{ project_uid }}"
   register: _jobs
-
-- pause:
 
 - set_fact:
     jobs: "{{ _jobs.jobs }}"
