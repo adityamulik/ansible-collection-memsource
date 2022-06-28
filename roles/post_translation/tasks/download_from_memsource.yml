@@ -19,17 +19,9 @@
     project_name: "{{ project_name }}"
   register: _project
 
-- debug:
-    msg: |
-      {{ _project }}
-      Test: {{ _project.project.uid }}
-      Test2: {{ _project.content }}
-
-- pause:
-
 - name: Set Project UID from project name {{ _project }}
   set_fact: 
-    project_uid: "{{ _project['content']uid }}"
+    project_uid: "{{ _project.projects.content[0].uid }}"
 
 - name: Gather information about a specific job {{ project_uid }}
   ansible.memsource.memsource_job_info:
