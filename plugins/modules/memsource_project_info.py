@@ -8,20 +8,17 @@ __metaclass__ = type
 
 DOCUMENTATION = """
 module: memsource_project_info
-short_description: Gather information about projects available in Memsource.
+short_description: Get the recent project from Memsource on passing the project name parameter.
 version_added: 0.0.1
 description:
-    - Gather information about projects available in Memsource
+    - Get the recent project from Memsource on passing the project name parameter
 author: 'Yanis Guenane (@Spredzy)'
 options:
-  filters:
+  project_name:
     description:
-      - A dict of filters to apply.
-      - Each dict item consists of a filter key and a filter value.
-      - See U(https://cloud.memsource.com/web/docs/api#operation/getProject) for possible filters.
-    required: false
-    default: {}
-    type: dict
+      - A string passed as the project name which matches the project name on Memsource
+    required: true
+    type: str
 extends_documentation_fragment:
 - ansible.memsource.memsource
 
@@ -29,22 +26,22 @@ requirements: [memsource]
 """
 
 EXAMPLES = """
-- name: Gather information about all available projects
+- name: Get Project by Project Name
   ansible.memsource.memsource_project_info:
+    project_name: "{{ project_name }}"
+  register: _project
 
-- name: Gather information about a named project
-  ansible.memsource.memsource_project_info:
-    filters:
-      name: my-memsource-template
+- name: Set Project UID from project name {{ _project }}
+  set_fact: 
+    project_uid: "{{ _project.projects.content[0].uid }}"
 """
 
 RETURN = """
-projects:
+project:
     returned: on success
     description: >
-        Memsource templates that match the provided filters. Each element consists of a dict with all the information
-        related to that template.
-    type: list
+        Returns the json response for the specified project name
+    type: dict
 """
 
 from ansible.module_utils.basic import AnsibleModule
