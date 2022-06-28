@@ -21,7 +21,7 @@
 
 - name: Set Project ID from project name 
   set_fact: 
-    project_uid: "{{ _project.content.uid }}"
+    project_uid: "{{ _project.uid }}"
 
 - name: Gather information about a specific job {{ project_uid }}
   ansible.memsource.memsource_job_info:
