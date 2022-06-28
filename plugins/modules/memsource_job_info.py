@@ -69,9 +69,7 @@ def main():
 
     jobs = _memsource.get_jobs(
         module.params.get("project_uid"), filters=module.params.get("filters")
-    )
-
-    print("PROJECT ID ", jobs["projects"])
+    )    
 
     module.exit_json(jobs=jobs)
 
