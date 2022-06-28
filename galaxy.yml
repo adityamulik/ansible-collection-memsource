@@ -1,13 +1,14 @@
 ---
 namespace: ansible
+
 name: memsource
-version: 0.0.2
+
+version: 0.0.1
+
 readme: README.md
 
 authors:
-  - Yanis Guenane <yguenane+opensource@gmail.com>
-  - Christian Adams <chadams@redhat.com>
-  - Aditya Mulik <aditya.mulik@gmail.com>
+  - Ansible
 
 description: An Ansible collection to interact with Memsource
 
@@ -19,9 +20,21 @@ tags:
   - translation
   - localization
 
-dependencies: {}
-
 repository: https://github.com/ansible/ansible-collection-memsource
+
 documentation: https://github.com/ansible/ansible-collection-memsource
-homepage: https://github.com/ansible/ansible.memsource
+
+homepage: https://github.com/ansible/ansible-collection-memsource
+
 issues: https://github.com/ansible/ansible-collection-memsource/issues
+
+build_ignore:
+- 'docs'
+- '.ci'
+- 'tests'
+- '.gitignore'
+- '.github'
+- '.git'
+- '.pytest_cache'
+- 'CONTRIBUTING.md'
+- 'Makefile'
