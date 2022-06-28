@@ -71,7 +71,7 @@ def main():
         module.params.get("project_uid"), filters=module.params.get("filters")
     )
 
-    print(jobs)
+    print("PROJECT ID ", jobs["projects"])
 
     module.exit_json(jobs=jobs)
 
