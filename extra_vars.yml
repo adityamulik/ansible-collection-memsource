@@ -1,0 +1,11 @@
+---
+
+# Template vars file
+
+email: ""
+github_username: ""
+github_token: ""
+repo_url: ""
+repo_branch: ""
+project_name: ""
+project_template: 
