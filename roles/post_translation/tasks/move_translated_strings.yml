@@ -12,7 +12,7 @@
 
 - name: Clone the repository
   git:
-    repo: 'git@github.com:{{ repo_url }}.git'
+    repo: 'git@github.com:{{ downstream_repo_url }}.git'
     dest: '{{clone_directory.path}}'
     version: '{{ repo_branch }}'
     force: true
@@ -40,8 +40,8 @@
   block:
   - name: Permissions for Script
     ansible.builtin.file:
-      path: "{{ role_path }}/files/_clones/{{ component }}/tools/scripts/l18n/post_translation.sh"
+      path: "{{ role_path }}/post_translation.sh"
       mode: '0755'
 
   - name: Run Script
-    ansible.builtin.shell: "cd {{ role_path }}/files/ && ./_clones/{{ component }}/tools/scripts/l18n/post_translation.sh"
+    ansible.builtin.shell: "cd {{ role_path }} && ./post_translation.sh"

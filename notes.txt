@@ -1,0 +1,29 @@
+
+// awx
+repo_url: "ansible/awx"
+repo_branch: "devel"
+project_name: "[AutomationController] API & UI Localization"
+project_uid: "lgrOuoVuaA9e9lojE5QVq0"
+
+// catalog - pinakes & pinakes-ui 
+// pinakes has mo files compilation req 
+repo_url: "ansible/pinakes"
+repo_branch: "devel"
+project_name: "[Service Catalog (Pinakes)] API & UI Localization"
+project_uid: "b2JiB95bxJG7fhRDvJG4G1"
+
+repo_url: "ansible/pinakes-ui"
+repo_branch: "main"
+project_name: "[Service Catalog (Pinakes)] API & UI Localization"
+project_uid: "b2JiB95bxJG7fhRDvJG4G1"
+
+// hub - hub-ui and galaxy_ng
+repo_url: "ansible/ansible-hub-ui"
+repo_branch: "master"
+project_name: "[AutomationHub] API & UI Localization"
+project_uid: "FCpGsoo5nSb32pmdpxiCg2"
+
+repo_url: "adityamulik/galaxy_ng"
+repo_branch: "master"
+project_name: "[AutomationHub] API & UI Localization"
+project_uid: "FCpGsoo5nSb32pmdpxiCg2"

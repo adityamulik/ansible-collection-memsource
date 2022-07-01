@@ -3,6 +3,7 @@
 - name: Add files to pr_branch & push the files
   shell: |
     git restore tools/scripts/l18n/post_translation.sh && \
+    git restore tools/scripts/l18n/pre_translation.sh && \
     git add . && \
     git commit -m "Pushing updated strings" && \
     git push origin {{ pr_branch }}

@@ -2,10 +2,10 @@
 
 # Template vars file
 
-email: ""
-github_username: ""
-github_token: ""
-repo_url: ""
-repo_branch: ""
-project_name: ""
-project_template: 
+email: "aditya.mulik@gmail.com"
+github_username: "adityamulik"
+downstream_repo_url: "adityamulik/galaxy_ng"
+repo_url: "ansible/galaxy_ng"
+repo_branch: "master"
+project_name: "[AutomationHub] API & UI Localization"
+project_uid: "FCpGsoo5nSb32pmdpxiCg2"

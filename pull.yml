@@ -2,6 +2,6 @@
 - name: Generic Localization - Post-translation
   hosts: localhost
   vars_files:
-    - "vars/common.yml"
+    - "playbooks/vars/common.yml"
   roles:
-    - role: ansible.memsource.post_translation
+    - role: post_translation
