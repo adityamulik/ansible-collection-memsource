@@ -1,5 +1,5 @@
 Pre Translation Role
-=========
+====================
 
 The pre_translation role is used to push extracted string from a GitHub project to Memsource client for it to be translated to several other languages.
 
@@ -24,10 +24,17 @@ Below are mandatory variables required.
 Dependencies
 ------------
 
-Global vars are declarared in the root folder as global_vars/all which can be overridden by passing vars from command-line.
+Global vars are declarared in the defaults folder as main.yml which can be overridden by passing vars from command-line or extra_vars.yml file in the collection's root folder.
+
+Steps to create pre_translation shell Script
+--------------------------------------------
+- Create a pre_translation.sh file. This file will reside in the project which will be used for translation in the root path as per below
+**/tools/scripts/l18n/pre_translation.sh**
+- Add the execution commands to extract the files (e.g. po, json)
+- Once the file(s) are generated, move the files to a folder (folder name: translations)
 
 Playbook
-----------------
+--------
 
 The playbook push.yml is available under playbooks/ directory will be used to run the role:
 

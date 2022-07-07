@@ -1,5 +1,5 @@
 Post Translation Role
-=========
+=====================
 
 The post_translation role is used to pull translated strings from Memsource client for the specified languages, commit, and push those strings back to the code repository.
 
@@ -28,11 +28,24 @@ fail)
 Dependencies
 ------------
 
-The pre_translation role should already be executed for the latest strings to be translated and be available on Memsource client for post_translation script to work.
-Global vars are declarared in the root folder as global_vars/all which can be overridden by passing vars from command-line.
+- The pre_translation role should already be executed for the latest strings to be translated and be available on Memsource portal for post_translation script to work.
+- Global vars are declarared in the defaults folder as main.yml which can be overridden by passing vars from command-line or extra_vars.yml file in the collection's root folder.
+
+Steps to create post_translation shell Script
+--------------------------------------------
+- Create a post_translation.sh file. This file will reside in the project which will be used for translation in the root path as per below
+**/tools/scripts/l18n/post_translation.sh**
+- a translations folder will be provided with all the translated strings retrieved from Memsource (Folder name: translations)\
+  Translation folder with all languages generated files will be in below format\
+  e.g.\
+      /translations/fr/django.po\
+      /translations/jp/django.po\
+      /translations/ko/django.po\
+      /translations/ko/messages.po
+- Add the logic to move the files to the desired location where the new translated strings should reside, further the playbook would create a Pull Request for the updated strings.
 
 Playbook
-----------------
+--------
 
 The playbook pull.yml is available under playbooks/ directory will be used to run the role:
 
