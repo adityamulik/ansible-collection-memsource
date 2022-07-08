@@ -38,7 +38,9 @@
       mode: '0755'
 
   - name: Run Script
-    ansible.builtin.shell: "cd {{ role_path }}/files/ && ./_clones/{{ component }}/tools/scripts/l18n/pre_translation.sh"
+    ansible.builtin.shell:
+      cmd: ./tools/scripts/l18n/pre_translation.sh
+      chdir: "{{ role_path }}/files/_clones/{{ component }}"
 
 - name: List all files in translations_dir
   command: "ls {{ translations_dir.path }}"
