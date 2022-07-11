@@ -2,10 +2,10 @@
 
 # Template vars file
 
-github_username: ""
+github_username: "adityamulik"
 github_token: ""
-repo_url: ""
-repo_branch: ""
-fork_repo_url: ""
-project_name: ""
-project_template: 
+repo_url: "adityamulik/pinakes-ui"
+repo_branch: "main"
+fork_repo_url: "adityamulik/pinakes-ui"
+project_name: "Pinakes UI"
+project_template: 203223

@@ -27,14 +27,14 @@ options:
     default: {}
     type: dict
 extends_documentation_fragment:
-- adityamulik.memsource.memsource
+- ansible.memsource.memsource
 
 requirements: [memsource]
 """
 
 EXAMPLES = """
 - name: Gather information about a specific job
-  adityamulik.memsource.memsource_job:
+  ansible.memsource.memsource_job:
     project_uid: 123456
     filters:
       targetLang: ja_jp
@@ -49,8 +49,8 @@ jobs:
     type: list
 """
 
-from adityamulik.module_utils.basic import AnsibleModule
-from ansible_collections.adityamulik.memsource.plugins.module_utils.memsource import (
+from ansible.module_utils.basic import AnsibleModule
+from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
     get_default_argspec,
     get_memsource_client,
 )
