@@ -37,19 +37,19 @@ options:
     required: false
     type: bool
 extends_documentation_fragment:
-- ansible.memsource.memsource
+- adityamulik.memsource.memsource
 
 requirements: [memsource]
 """
 
 EXAMPLES = """
 - name: Download job target file and rely on filename and original directory name for dest
-  ansible.memsource.memsource_job_targetfile:
+  adityamulik.memsource.memsource_job_targetfile:
     project_uid: xxx
     jobs_uid: yyy
 
 - name: Download job target file and write it in path
-  ansible.memsource.memsource_job_targetfile:
+  adityamulik.memsource.memsource_job_targetfile:
     project_uid: xxx
     jobs_uid: yyy
     path: /tmp/foo
@@ -65,8 +65,8 @@ job_targetfile:
 
 import os.path
 
-from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
+from adityamulik.module_utils.basic import AnsibleModule
+from ansible_collections.adityamulik.memsource.plugins.module_utils.memsource import (
     get_action,
     get_default_argspec,
     get_memsource_client,

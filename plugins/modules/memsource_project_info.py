@@ -20,14 +20,14 @@ options:
     required: true
     type: str
 extends_documentation_fragment:
-- ansible.memsource.memsource
+- adityamulik.memsource.memsource
 
 requirements: [memsource]
 """
 
 EXAMPLES = """
 - name: Get Project by Project Name
-  ansible.memsource.memsource_project_info:
+  adityamulik.memsource.memsource_project_info:
     project_name: "{{ project_name }}"
   register: _project
 
@@ -44,8 +44,8 @@ project:
     type: dict
 """
 
-from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
+from adityamulik.module_utils.basic import AnsibleModule
+from ansible_collections.adityamulik.memsource.plugins.module_utils.memsource import (
     get_default_argspec,
     get_memsource_client,
 )

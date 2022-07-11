@@ -35,23 +35,23 @@ options:
       - Whether to purge the content of the project on delete
     type: bool
 extends_documentation_fragment:
-- ansible.memsource.memsource
+- adityamulik.memsource.memsource
 
 requirements: [memsource]
 """
 
 EXAMPLES = """
 - name: Create project from template id
-  ansible.memsource.memsource_project:
+  adityamulik.memsource.memsource_project:
     name: My Project
     template_id: 12345
 
 - name: Retrieve project information
-  ansible.memsource.memsource_project:
+  adityamulik.memsource.memsource_project:
     uid: uid
 
 - name: Delete project
-  ansible.memsource.memsource_project:
+  adityamulik.memsource.memsource_project:
     uid: uid
     state: absent
 """
@@ -64,8 +64,8 @@ project:
     type: dict
 """
 
-from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
+from adityamulik.module_utils.basic import AnsibleModule
+from ansible_collections.adityamulik.memsource.plugins.module_utils.memsource import (
     get_action,
     get_default_argspec,
     get_memsource_client,

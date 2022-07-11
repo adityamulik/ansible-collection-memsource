@@ -23,17 +23,17 @@ options:
     default: {}
     type: dict
 extends_documentation_fragment:
-- ansible.memsource.memsource
+- adityamulik.memsource.memsource
 
 requirements: [memsource]
 """
 
 EXAMPLES = """
 - name: Gather information about all available import settings
-  ansible.memsource.memsource_import_settings_info:
+  adityamulik.memsource.memsource_import_settings_info:
 
 - name: Gather information about a named import settings
-  ansible.memsource.memsource_import_settings_info:
+  adityamulik.memsource.memsource_import_settings_info:
     filters:
       name: my-memsource-import-settings
 """
@@ -47,8 +47,8 @@ import_settings:
     type: list
 """
 
-from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
+from adityamulik.module_utils.basic import AnsibleModule
+from ansible_collections.adityamulik.memsource.plugins.module_utils.memsource import (
     get_default_argspec,
     get_memsource_client,
 )

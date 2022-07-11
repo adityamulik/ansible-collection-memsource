@@ -59,7 +59,7 @@ options:
       - TODO
     type: int
 extends_documentation_fragment:
-- ansible.memsource.memsource
+- adityamulik.memsource.memsource
 
 requirements: [memsource]
 """
@@ -75,8 +75,8 @@ import_settings:
     type: dict
 """
 
-from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.ansible.memsource.plugins.module_utils.memsource import (
+from adityamulik.module_utils.basic import AnsibleModule
+from ansible_collections.adityamulik.memsource.plugins.module_utils.memsource import (
     get_action,
     get_default_argspec,
     get_memsource_client,

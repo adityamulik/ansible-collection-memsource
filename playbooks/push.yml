@@ -2,4 +2,4 @@
 - name: Generic Localization - Pre-translation
   hosts: localhost
   roles:
-    - role: ansible.memsource.pre_translation
+    - role: adityamulik.memsource.pre_translation
