@@ -28,6 +28,7 @@
 - name: Gather information about a specific job
   ansible.memsource.memsource_job_info:
     project_uid: "{{ project_uid }}"
+    target_lang: "{{ translation_supported_langs }}"
     memsource_username: "{{ memsource_username }}"
     memsource_password: "{{ memsource_password }}"
   register: _jobs
